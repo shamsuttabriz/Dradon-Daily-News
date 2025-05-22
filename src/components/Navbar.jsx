@@ -4,7 +4,17 @@ import userIcon from "../assets/user.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 function Navbar() {
-  const {user} = use(AuthContext);
+  const { user, signOutUser } = use(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        alert("Sign out successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -16,7 +26,15 @@ function Navbar() {
       </div>
       <div className="flex gap-4 items-center">
         <img src={userIcon} alt="user" />
-        <Link to="/auth/login" className="btn btn-primary px-8">Login</Link>
+        {user ? (
+          <button onClick={handleSignOut} className="btn btn-primary px-8">
+            LogOut
+          </button>
+        ) : (
+          <Link to="/auth/login" className="btn btn-primary px-8">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
