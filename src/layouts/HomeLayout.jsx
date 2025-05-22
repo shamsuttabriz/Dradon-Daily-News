@@ -19,13 +19,13 @@ function HomeLayout() {
         </nav>
       </header>
       <main className="max-w-6xl mx-auto grid grid-cols-12 gap-3 my-5">
-        <aside className="col-span-3">
+        <aside className="col-span-3 sticky top-5 h-fit">
           <LeftAside />
         </aside>
         <section className="col-span-6">
           <Outlet />
         </section>
-        <aside className="col-span-3">
+        <aside className="col-span-3 h-fit">
           <RightAside />
         </aside>
       </main>
