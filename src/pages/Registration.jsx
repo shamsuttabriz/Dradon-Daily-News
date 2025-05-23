@@ -1,15 +1,18 @@
 import React, { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Registration = () => {
   const [accepted, setAccepted] = useState(false);
-  const { createUser, setUser } = use(AuthContext);
+  const [error, setError] = useState("");
+  const { createUser, setUser, updateUser } = use(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!accepted) {
-      alert("Please accept the terms & conditions.");
+      setError("Please accept the terms & conditions.");
       return;
     }
 
@@ -20,15 +23,33 @@ const Registration = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (name.length < 5) {
+      setError("Please enter a name with at least 5 characters");
+      return;
+    } else {
+      setError("");
+    }
+
     // Create User
     createUser(email, password)
       .then((result) => {
-        setUser(result.user);
+        const user = result.user;
+        // Update user
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            console.log(user);
+            navigate("/");
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
       })
       .catch((error) => {
-        alert(error.message);
+        setError(error.message);
       });
   };
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
@@ -104,7 +125,7 @@ const Registration = () => {
             />
           </div>
 
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-3">
             <input
               type="checkbox"
               id="terms"
@@ -118,6 +139,8 @@ const Registration = () => {
               </span>
             </label>
           </div>
+
+          {error && <p className="text-red-500 text-xs mb-3">{error}</p>}
 
           <button
             type="submit"

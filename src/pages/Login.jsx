@@ -1,9 +1,10 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLocation } from "react-router";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signInUser } = use(AuthContext);
 
   const location = useLocation();
@@ -22,7 +23,8 @@ const Login = () => {
         navigate(`${location.state ? location.state : '/'}`)
       })
       .catch((error) => {
-        alert(error.message);
+        // alert(error.message);
+        setError(error.message);
       });
   };
   return (
@@ -45,10 +47,11 @@ const Login = () => {
               name="email"
               placeholder="Enter your email address"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              required
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-3">
             <label
               htmlFor="password"
               className="block text-gray-700 font-medium mb-1"
@@ -61,8 +64,13 @@ const Login = () => {
               name="password"
               placeholder="Enter your password"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              required
             />
           </div>
+
+          {
+            error && <p className="text-red-500 text-xs mb-3">{error}</p>
+          }
 
           <button
             type="submit"
