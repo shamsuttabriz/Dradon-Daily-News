@@ -5,6 +5,7 @@ import CategoryNews from "../pages/CategoryNews";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import AuthLayout from "../layouts/AuthLayout";
+import NewsDetails from "../pages/NewsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -41,8 +42,12 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/news",
-    element: <p>News Layout</p>,
+    path: "/news-details/:id",
+    element: <NewsDetails />,
+    hydrateFallbackElement: (
+      <span className="loading loading-spinner loading-xl"></span>
+    ),
+    loader: () => fetch("../news.json"),
   },
   {
     path: "/*",

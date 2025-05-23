@@ -1,8 +1,9 @@
 import React from "react";
 import { Bookmark, Share2, Eye } from "lucide-react";
+import { Link } from "react-router";
  
 const NewsCard = ({ news }) => {
-  const { title, rating, total_view, author, thumbnail_url, details } = news;
+  const {id, title, total_view, author, thumbnail_url, details } = news;
 
   const date = new Date(author.published_date).toLocaleDateString()
 
@@ -46,9 +47,9 @@ const NewsCard = ({ news }) => {
       {/* Description */}
       <div className="px-4 py-3">
         <p className="text-sm text-gray-600">{details.slice(0, 270)}...</p>
-        <button className="text-orange-600 text-sm mt-2 font-semibold hover:underline">
+        <Link to={`/news-details/${id}`} className="text-orange-600 text-sm mt-2 font-semibold hover:underline">
           Read More
-        </button>
+        </Link>
       </div>
 
       {/* Footer */}

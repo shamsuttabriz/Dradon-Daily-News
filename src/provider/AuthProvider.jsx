@@ -44,7 +44,7 @@ function AuthProvider({ children }) {
     signOutUser,
   };
 
-  console.log(user);
+  // console.log(user);
 
   return <AuthContext value={authData}>{children}</AuthContext>;
 }
