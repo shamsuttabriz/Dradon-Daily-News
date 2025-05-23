@@ -15,7 +15,6 @@ function NewsDetails() {
     setNews(findNews);
   }, [data, id]);
 
-  console.log(news, id);
   return (
     <div>
       <header>

@@ -6,7 +6,6 @@ const categoryPromise = fetch("/categories.json").then((res) => res.json());
 
 function Category() {
   const categories = use(categoryPromise);
-  // console.log(categories);
   return (
     <div>
       <h2 className="font-semibold">All Categories {categories.length}</h2>

@@ -31,8 +31,8 @@ function AuthProvider({ children }) {
   };
 
   const updateUser = (updatedData) => {
-    return updateProfile(auth.currentUser, updatedData)
-  }
+    return updateProfile(auth.currentUser, updatedData);
+  };
 
   //   Observer
   useEffect(() => {
@@ -53,10 +53,8 @@ function AuthProvider({ children }) {
     signOutUser,
     loading,
     setLoading,
-    updateUser, 
+    updateUser,
   };
-
-  // console.log(user);
 
   return <AuthContext value={authData}>{children}</AuthContext>;
 }

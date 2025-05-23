@@ -38,7 +38,6 @@ const Registration = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            console.log(user);
             navigate("/");
           })
           .catch((error) => {
