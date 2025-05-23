@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import AuthLayout from "../layouts/AuthLayout";
 import NewsDetails from "../pages/NewsDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/news-details/:id",
-    element: <NewsDetails />,
+    element: (
+      <PrivateRoute>
+        <NewsDetails />
+      </PrivateRoute>
+    ),
     hydrateFallbackElement: (
       <span className="loading loading-spinner loading-xl"></span>
     ),
