@@ -1,12 +1,13 @@
 
-<a href="https://dragon-daily-news.web.app/category/1" target="_blank">
-  <img src="https://i.ibb.co/20j2nj5m/Screenshot.png" alt="Dragon News Demo" style="width: 100%; object-fit: cover;" />
-</a>
+[![Dragon Daily News Demo](https://i.ibb.co/20j2nj5m/Screenshot.png)](https://dragon-daily-news.web.app/category/1)
+
 
 # 🐉 Dragon Daily News
 A modern, fully responsive news portal built with React, Firebase, Tailwind CSS, and Vite. This project simulates a real-world news application with category-based news, user authentication, and private routes — perfect for portfolio showcasing.
 
 ---
+
+## 🌐 Live Demo
 
 🔗 **Live Link**: [https://dragon-daily-news.web.app](https://dragon-daily-news.web.app/category/1)
 
@@ -26,35 +27,35 @@ This project was built to practice modern React development using real-world fea
 
 ## ✨ Key Features
 
-- 🔐 **Firebase Authentication**  
-  - Email/Password login  
-  - Logout & user session handling
-  - Google Sign-In Panding..
-  - Github Sign-In Panding..
+-  **Firebase Authentication**  
+    - Email/Password login  
+    - Logout & user session handling
+    - Google Sign-In Panding..
+    - Github Sign-In Panding..
 
-- 🧭 **Dynamic & Nested Routing**   
-  - Routes like `/category/:id`
+-  **Dynamic & Nested Routing**   
+    - Routes like `/category/:id`
 
-- 🛡️ **Protected Routes**  
-  - News detail pages are accessible only after login
+-  **Protected Routes**  
+    - News detail pages are accessible only after login
 
-- 📂 **Category-based News Display**  
-  - Dynamic rendering of news based on selected category
+-  **Category-based News Display**  
+    - Dynamic rendering of news based on selected category
 
-- 📱 **Responsive Design**  
-  - Built with Tailwind CSS & DaisyUI for mobile-first layout Panding..
+-  **Responsive Design**  
+    - Built with Tailwind CSS & DaisyUI for mobile-first layout Panding..
 
-- 📰 **Animated News Ticker**  
-  - Smooth scrolling headlines using `react-fast-marquee`
+-  **Animated News Ticker**  
+    - Smooth scrolling headlines using `react-fast-marquee`
 
-- ⏰ **Formatted Publish Times**  
-  - Human-readable dates with `date-fns`
+-  **Formatted Publish Times**  
+    - Human-readable dates with `date-fns`
 
-- 💡 **Modern UI Components**  
-  - Used Lucide & React Icons for sleek design
+-  **Modern UI Components**  
+    - Used Lucide & React Icons for sleek design
 
-- ⚡ **High Performance Development**  
-  - Powered by Vite for fast builds and hot reload
+-  **High Performance Development**  
+    - Powered by Vite for fast builds and hot reload
 
 ---
 
